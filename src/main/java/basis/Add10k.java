@@ -1,10 +1,11 @@
 package basis;
 
-public class Atomic {
+
+public class Add10k {
 
     public static void main(String[] args) {
         try {
-            System.out.println(Atomic.calc());
+            System.out.println(Add10k.calc());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -20,7 +21,7 @@ public class Atomic {
     }
 
     public static long calc() throws InterruptedException {
-        final Atomic test = new Atomic();
+        final Add10k test = new Add10k();
         // 创建两个线程，执行add()操作
         Thread th1 = new Thread(() -> {
             test.add10K();
