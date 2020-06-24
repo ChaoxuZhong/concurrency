@@ -1,18 +1,18 @@
 package basis;
 
 public class SafeCalc {
-    long value = 0l;
+    static long value = 0l;
 
     public long getValue() {
         return value;
     }
 
-    synchronized void addOne() {
+    synchronized static void addOne() {
         value++;
     }
 
     synchronized void add10k() {
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000000; i++) {
             value++;
         }
     }
@@ -28,12 +28,12 @@ public class SafeCalc {
         System.out.println(safeCalc.getValue());
 
         Thread th1 = new Thread(() -> {
-            for (int i = 0; i < 100000; i++) {
+            for (int i = 0; i < 10000000; i++) {
                 safeCalc.addOne();
             }
         });
         Thread th2 = new Thread(() -> {
-            for (int i = 0; i < 100000; i++) {
+            for (int i = 0; i < 10000000; i++) {
                 safeCalc.addOne();
             }
         });
