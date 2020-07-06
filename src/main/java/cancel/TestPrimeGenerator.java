@@ -42,8 +42,6 @@ public class TestPrimeGenerator {
         } finally {
             primeGenerator.cancel();
         }
-        List<BigInteger> result =  primeGenerator.getPrimes();
-        result = null;
         return primeGenerator.getPrimes();
     }
 
